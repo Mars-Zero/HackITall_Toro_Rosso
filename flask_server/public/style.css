@@ -15,7 +15,7 @@ header {
 
 header #header-image {
   height: 180px;
-  background: url('images/html-programming.jpg') no-repeat;
+  background: url('images/BCR_logo.svg.png') no-repeat;
   background-size: cover;
   padding: 1rem 2rem;
   text-align: right;
