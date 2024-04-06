@@ -12,4 +12,5 @@ pip install sentence-transformers
 pip install accelerate 
 pip install bitsandbytes 
 pip install flash-attn --no-build-isolation 
+pip install flask
 
