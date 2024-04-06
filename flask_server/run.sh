@@ -1,5 +1,5 @@
 pip install flask
 
-export FLASK_APP=flask_server
-export FLASK_DEBUG=False
+export FLASK_APP=server
+export FLASK_DEBUG=True
 flask run
