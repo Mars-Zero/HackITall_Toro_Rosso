@@ -118,7 +118,7 @@ def get_embeddings_from_file(filename:str = "text_chunks_and_embeddings_df.csv")
     text_chunks_and_embedding_df["embedding"] = text_chunks_and_embedding_df["embedding"].apply(lambda x: np.fromstring(x.strip("[]"), sep=" "))
 
     # Convert texts and embedding df to list of dicts
-    pages_and_chunks = text_chunks_and_embedding_df.to_dict(orient="records")
+    pages_and_chunks = text_chunks_and_embedding_df.to_dict(orient="records")   
 
     # Convert embeddings to torch tensor and send to device (note: NumPy arrays are float64, torch tensors are float32 by default)
     embeddings = torch.tensor(np.array(text_chunks_and_embedding_df["embedding"].tolist()), dtype=torch.float32).to("cpu")
@@ -134,12 +134,50 @@ def get_answer_from_RAG(query:str):
     
     return response 
 
+def translate_to_english(query:str):
+    client = OpenAI(api_key=OPENAI_API_KEY)
+    messages = [
+        {"role": "system", "content": "Translate into English the following sentence:  " +query}
+    ]
+
+    response = client.chat.completions.create(
+                            model="gpt-3.5-turbo",
+                            messages=messages)
+        
+    return response.choices[0].message.content
+
+def translate_to_romanian(query:str):
+    client = OpenAI(api_key=OPENAI_API_KEY)
+    messages = [
+        {"role": "system", "content": "Translate into Romanian the following sentence:  " + query}
+    ]
+
+    response = client.chat.completions.create(
+                            model="gpt-3.5-turbo",
+                            messages=messages)
+        
+    return response.choices[0].message.content
+
+def get_answer_from_RAG_romanian(query:str):
+
+    embedding_model = SentenceTransformer(model_name_or_path="all-mpnet-base-v2", device="cpu") # choose the device to load the model to (note: GPU will often be *much* faster than CPU)
+
+    embeddings, pages_and_chunks = get_embeddings_from_file()
+    
+    query = translate_to_english(query=query)
+    response = get_answer_from_query(query=query, embeddings=embeddings, pages_and_chunks=pages_and_chunks, model=embedding_model)
+    response = translate_to_romanian(query=response)
+    
+    return response 
+
+
 if __name__=="__main__":
-    query = "what is the maximum amount of money guaranteed by the europeean union?"
+    # query = "what is the maximum amount of money guaranteed by the europeean union?"
+    query = "care este suma maximă de bani garantată de uniunea europeană?"
 
     print("QUERY: ")
     print_wrapped(query)
-    response = get_answer_from_RAG(query=query)
+    response = get_answer_from_RAG_romanian(query)
     print("RESPONSE:")
     print_wrapped(response)
 
