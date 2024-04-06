@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template, redirect
 import os
+import json
 
 # Note: static folder means all files from there will be automatically served over HTTP
 app = Flask(__name__, static_folder="public")
@@ -16,39 +17,47 @@ ALLOWED_USERS = {
 }
 
 # Task 04: database filename
-DATABASE_FILE = "database.txt"
+DATABASE_FILE = "database.json"
 UPLOAD_FOLDER = "./public/images/profile"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
 @app.route("/")
 def index():
-    # TODO Task 01: render the index page using child template
     return render_template("index.html")
 
 @app.route("/second")
 def second():
-    # TODO Task 01: render the second page using child template
     return render_template("second.html")
 
-# TODO Task 02: Authentication
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     error_msg = ""
     if request.method == "POST":
         username = request.form.get("username", "")
         password = request.form.get("password", "")
-        # TODO: verify credentials and set the session dict
-        if username in ALLOWED_USERS and password == ALLOWED_USERS[username]:
-            session['authenticated'] = True
-            session["username"] = username
-        
+
+        # Read user data from JSON file
+        with open(DATABASE_FILE, 'r') as file:
+            users_data = json.load(file)
+
+        # Verify credentials
+        print(username)
+        print(password)
+        for user_data in users_data:
+            if user_data["user"] == username and user_data["pass"] == password:
+                # Authentication successful
+                session['authenticated'] = True
+                session["username"] = username
+                return redirect("/")
+        error_msg = "Invalid username or password"
+
     return render_template("login.html", error_msg=error_msg)
 
 
 @app.route("/logout")
 def logout():
-    # TODO Task 02: clear authentication status
     session["authenticated"] = False
     return redirect("/")
 
