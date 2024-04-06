@@ -1,0 +1,143 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+}
+
+@keyframes fade-inout{
+    0%{ opacity: 1;}
+    100%{ opacity: 0;}
+}
+.fade_in_fade_out{
+    animation: fade-inout 5s infinite alternate;
+    font-size: 5em;
+    text-align: center;
+}
+
+.banner{
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(38, 35, 32, 0.5),rgba(38, 35, 32, 0.5)), url(schonbrunn.jpeg);
+    opacity: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.menu{
+    width: 85%;
+    margin: none;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;   
+}
+
+.menu ul li a{
+    text-decoration: none;
+    text-transform: uppercase;
+    color:rgb(220, 202, 168);
+    font-size: large;
+    font-family: 'Franklin Gothic Medium';
+}
+
+.menu ul li::after{
+    content: '';
+    height: 3px;
+    width: 0%;
+    background:rgba(207, 92, 92, 0.7);
+    position: absolute;
+    left:0;
+    bottom: -7px;
+    transition: 0.5s;
+}
+
+.menu ul li:hover::after{
+    width: 100%;
+}
+
+.content{
+    width:100%;
+    position: absolute;
+    top: 50%;
+    font-size: 30px; 
+    font-family: 'Franklin Gothic Medium'; 
+    color: rgb(220, 202, 168); 
+    text-align:center;
+    text-shadow: 0 0 3px #d6adad, 0 0 5px #2c2cc2;
+}
+
+.menu button{
+
+    position: relative;
+    outline: 0;
+    background-color: #00000047;
+    color: white;
+    padding: 2px 30px;
+    font-size: 15px;
+    border-radius: 40px;
+    margin-top: -10px;
+    margin-left: 120%;
+    cursor: pointer;
+  }
+
+.languagebtn{
+    display: inline-flex;
+    align-items: center;
+    background: transparent;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 7px 20px;
+
+  }
+
+.languagebtn img{
+    width:35%;
+    margin-right: 4px;
+    margin-left: -15px;
+}
+.languagebtn:hover{
+    background-color: #6e6d6d60;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #6e6d6d60;
+    opacity: 90%;
+    min-width: 80px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    margin-left: 120%;
+    border-radius: 10%;
+    color: #ffffff;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: 'Goudy Old Style';
+  }
+
+  .dropdown-content a {
+    color: rgb(255, 255, 255);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-content a:hover {background-color: #00000061}
+  
+  .dropdown:hover .dropdown-content {
+    display:block;
+    
+  }
