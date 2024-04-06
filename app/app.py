@@ -6,6 +6,7 @@ from time import perf_counter as timer
 import textwrap
 from openai import OpenAI
 import os
+import sys
 
 OPENAI_API_KEY="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"
 
@@ -181,7 +182,7 @@ if __name__=="__main__":
     print("RESPONSE:")
     print_wrapped(response)
 
-
+get_answer_from_RAG_romanian(sys.argv[1])
 
 
 
