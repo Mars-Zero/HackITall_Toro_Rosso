@@ -1,0 +1,86 @@
+/* Main body styles */
+body {
+  background: #EEE;
+  color: #111;
+}
+
+/* Title / Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: #444444;
+}
+
+header {
+  background-color: #26262e;
+}
+
+header #header-image {
+  height: 180px;
+  background: url('images/html-programming.jpg') no-repeat;
+  background-size: cover;
+  padding: 1rem 2rem;
+  text-align: right;
+}
+
+header #header-image h1 {
+  display: inline-block;
+  background: #222;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  color: white;
+  font-weight: bold;
+}
+
+/* Site header + navigation */
+.site-header > nav {
+  background-color: #249;
+}
+.site-header .navbar-nav .nav-link {
+  color: #EEEEEE;
+  padding: 0.5em 1em;
+  margin: 0 0.3em;
+  border-radius: 10px;
+}
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+  background: #25D;
+  border-radius: 10px;
+}
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+  color: #336;
+  background: #FFFFFF;
+}
+
+main {
+  margin-top: 1.5rem;
+}
+
+/* content box with borders and background */
+.content-box {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  margin-bottom: 20px;
+  /* make box rounded ;) */
+  border-radius: 5px;
+}
+.content-box.main-content {
+  min-height: 100%;
+}
+
+.news-item { color: #000; }
+
+h1.main-title {
+  color: #136;
+  padding-bottom: 0.4em;
+  margin-top: 1rem;
+  margin-bottom: 0.7em;
+  border-bottom: 1px solid #DDDDDD;
+}
+
+.todo {
+  background: #FFA;
+  padding: 0.7rem;
+  font-style: italic;
+}
+
