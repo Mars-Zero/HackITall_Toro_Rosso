@@ -14,6 +14,11 @@ function changeInput(value) {
 
 async function getMessage() {
     // Disable submit button to prevent multiple clicks
+    if(inputElement.value === '')
+    {
+        showFeedback('Nu ai pus nici o intrebare.');
+        return; 
+    }
     submitButton.disabled = true;
 
     const options = {
