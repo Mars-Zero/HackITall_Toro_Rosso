@@ -8,6 +8,9 @@ from openai import OpenAI
 import os
 import sys
 
+# OPENAI_MODEL="gpt-3.5-turbo"
+# OPENAI_MODEL="gpt-4-0125-preview"
+OPENAI_MODEL="gpt-4"
 OPENAI_API_KEY="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"
 
 def print_wrapped(text, wrap_length=80):
@@ -97,7 +100,7 @@ def get_answer_from_query(model, query: str,
     ]
 
     response = client.chat.completions.create(
-    model="gpt-3.5-turbo",
+    model=OPENAI_MODEL,
     messages=messages)
     
     if verbose:
@@ -142,7 +145,7 @@ def translate_to_english(query:str):
     ]
 
     response = client.chat.completions.create(
-                            model="gpt-3.5-turbo",
+                            model=OPENAI_MODEL,
                             messages=messages)
         
     return response.choices[0].message.content
@@ -154,7 +157,7 @@ def translate_to_romanian(query:str):
     ]
 
     response = client.chat.completions.create(
-                            model="gpt-3.5-turbo",
+                            model=OPENAI_MODEL,
                             messages=messages)
         
     return response.choices[0].message.content
