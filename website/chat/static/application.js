@@ -38,6 +38,7 @@ async function getMessage() {
         const data = await response.json();
         // console.log('Output from Python script:', data.output);
         //outputElement.textContent = data.output
+        hideFeedback();
         outputElement.append(data.output)
         outputElement.innerHTML = outputElement.textContent.replace(/\r/g, '').replace(/\n/g, '<br>');
         // console.log(data)
