@@ -14,9 +14,7 @@ def execute_python_script():
     print(options)
     try:
         # result = subprocess.run(['python3', 'static/app.py', options['input']], capture_output=True, text=True)
-        print("cucs")
         result = get_answer_from_RAG_romanian(query=options['input'])
-        print(result)
         output = result
         return jsonify({'output': output})
     except Exception as e:
