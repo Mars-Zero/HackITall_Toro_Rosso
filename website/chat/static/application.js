@@ -26,16 +26,23 @@ async function getMessage() {
         console.log('JSON options:', JSON.stringify(options));
         outputElement.textContent = inputElement.value
         const response = await fetch('/execute-python-script', requestOptions);
-        // console.log(response);
         const data = await response.json();
-        // console.log('Output from Python script:', data.output);
-        outputElement.textContent = data.output
-        // console.log(data)
+        outputElement.textContent = data.output;
         if (data.output) {
-            const pElement = document.createElement('p')
-            pElement.textContent = inputElement.value
-            pElement.addEventListener('click', () => changeInput())
-            historyElement.append(pElement)
+            const divElement = document.createElement('div');
+            divElement.classList.add('history-item');
+            
+            const inputParagraph = document.createElement('p');
+            inputParagraph.textContent = inputElement.value;
+            divElement.appendChild(inputParagraph);
+            
+            const outputParagraph = document.createElement('p');
+            outputParagraph.textContent = data.output;
+            divElement.appendChild(outputParagraph);
+            
+            divElement.addEventListener('click', () => changeInput(inputElement.value));
+            
+            historyElement.appendChild(divElement);
         }
         clearInput();
     } catch (error) {

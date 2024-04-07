@@ -1,22 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
-*{
+* {
     color: #fff;
     font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    padding: 0;
     background-color: #000000cc;
     display: flex;
-}
-
-h1 {
-    font-size: 33px;
-    font-weight: 600;
-    padding: 200px 0;
-    color: #fff;
 }
 
 .side-bar {
@@ -35,7 +29,8 @@ h1 {
     text-align: center;
     justify-content: space-between;
     height: 100vh;
-    width: 100%;
+    width: calc(100% - 244px); /* Adjust width based on sidebar width */
+    padding: 50px; /* Add some padding for better spacing */
 }
 
 .bottom-section {
@@ -49,7 +44,7 @@ h1 {
 .info {
     color: rgba(255, 255, 255, 0.5);
     font-size: 11px;
-    padding: 10px;;
+    margin-top: 20px; /* Add some margin to separate from input */
 }
 
 input {
@@ -74,9 +69,10 @@ input:focus {
     position: relative;
     width: 100%;
     max-width: 650px;
+    margin-bottom: 20px; /* Add some margin at the bottom of input container */
 }
 
-.input-container #submit{
+.input-container #submit {
     position: absolute;
     right: 0;
     bottom: 15px;
@@ -95,7 +91,6 @@ nav {
     border-top: solid 0.5px rgba(255, 255, 255, 0.5);
     padding: 10px;
     margin: 10px;
-    /* align-content: center; */
     text-align: center;
 }
 
@@ -103,10 +98,33 @@ nav {
     padding: 10px;
     margin: 10px;
     display: flex;
+    flex-grow: 1; /* Allow history section to grow and occupy remaining space */
+    overflow-y: auto; /* Add scrollbar when content exceeds height */
     flex-direction: column;
-    height: 100%;
+    /* height: calc(100vh - 250px);  */
+    /* overflow-y: auto;  */
 }
 
-.history p{
+.history p {
     cursor: pointer;
+    padding: 8px 15px; /* Add padding to each history item */
+    margin-bottom: 5px; /* Add some margin between history items */
+    border-radius: 5px; /* Add border-radius for rounded corners */
+    background-color: rgba(255, 255, 255, 0.2); /* Change background color */
+}
+
+.history p:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Change background color on hover */
+}
+
+.history-item {
+    border: 1px solid #fff;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.history-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
