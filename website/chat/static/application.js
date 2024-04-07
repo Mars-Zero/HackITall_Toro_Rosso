@@ -3,11 +3,20 @@ const inputElement = document.querySelector('input')
 const outputElement = document.querySelector('#output')
 const historyElement = document.querySelector('.history')
 const buttonElement = document.querySelector('button')
+const historyElementButton = document.querySelector('.hist_bttn')
+
 // const feedbackElement = document.querySelector('#feedback')
 
-function changeInput(value) {
-    console.log(value)
-    clearInput
+historyElementButton.addEventListener('click', changeInput)
+
+function changeInput() {
+    console.log("miau")
+    clearInput()
+    // historyElement.value=''
+    const divElements = historyElement.getElementsByClassName('history-item');
+    while (divElements.length > 0) {
+        historyElement.removeChild(divElements[0]);
+    }
     // const inputElement = document.querySelector('input')
     // inputElement.value = value
 }
