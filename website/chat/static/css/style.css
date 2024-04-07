@@ -128,3 +128,9 @@ nav {
 .history-item:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
+#feedback {
+    display: none;
+    color: #fff;
+    font-size: 14px;
+    margin-top: 10px;
+}
