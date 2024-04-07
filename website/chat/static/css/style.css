@@ -9,17 +9,20 @@
 }
 
 body {
-    background-color: #000000cc;
+    /* background-color: #000000cc;*/
+    background-image: linear-gradient(to right, rgb(11, 16, 63) , rgb(150, 8, 126));
     display: flex;
 }
 
 .side-bar {
-    background-color: #27262687;
+    background-color: rgba(13, 18, 68, 0.768);
+    opacity: 80%;
     width: 244px;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    box-shadow: 5px 0px 5px rgba(123, 67, 161, 0.637);
 }
 
 .main {
@@ -136,3 +139,24 @@ nav {
     font-size: 14px;
     margin-top: 10px;
 }
+
+@keyframes fadeIn {
+    0% { opacity: 0;
+        transform: translateY(100%); }
+    100% { opacity: 1;
+        transform: translateY(0); }
+  }
+  @keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+.fade-in-text1 { opacity: 1;
+    animation: fadeOut 5s forwards;
+    font-size: 30px;
+}
+.fade-in-text2 { opacity: 0;
+    animation: fadeIn 5s forwards; 
+    font-size: 50px;
+}
+

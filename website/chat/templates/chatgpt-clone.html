@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <head>
         <meta charset="UTF-8">
-        <title>ChatGPT clone</title>
+        <title>BCR_OpenAI</title>
         <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+        <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAk1BMVEX///8ASXsAR3oAO3MANXAAQHYARHgAOXIAN3EAPXQAQnfs8fUAM2+zw9EARXj7/f7k6u+TqL2OoLbM1uAvX4oATH1qiKV1kay+y9fT3OQ6Zo709/ljg6KfssTS3OSXq79Td5qDm7Pe5eupusrE0NszYotHb5QcVYO5xtN9lq9XepwiWIVxjKlDbJIAL20AKWoAH2bAF4acAAAJw0lEQVR4nO2deX+yvBKGSyAQFhfcqqJ1wYqt9j3n+3+6U54up328A6iZBHy5fu2/wpBkZrLMnYeHFkWEs126jAfvxKtlZ7hNTL+QQsLpajESjmfbPv/A9z0R+fPTcth8O8N0knk2d5l1jhv4wj++TBts5WwwiuwAGfcNY4Hn7Jd90696Df1VJnihdd90fTFPm9aS07XjVzPvs8f69mlm+qUvIM2Ee4F5H/01EPOp6RevyNKyL2m+Hw0pRk2wseNe1D3/akgxGpo2oISnkbjevg8bX0PTRhSQTKKLx98ZrhObtkPKweU32/cOs49b06ZAegvntg76f9yojs04GytpwE+8t9qNxjRS1YAfuLxmTnXiKLXvHRYtTRv1g96br9rAd8Sjabu+CbOAwEDLstemLfukb90eBDF83jNtXM6WUxloWcGoBib2K04CLdfNVy9sz85XM4rnxbUyMexWeFcW2A6fTwZpZ7rb7aad5WYx8oRfxcxgbtjAZFzaRV3fy14O5+sU23QyrrAKwPcGzPrBc4mBjEfzglWY2SBzyvywf9JozxmvxZkas61B2SLT08kvCaZipcUWSOwV2ueN0yq/ksQlNkY7akNk7KLC9ss6lX8p5kWdgfmG0vCkyBe63kUToORUlLm7hhzqvsDLiPWln312LOiq9obEghKWoqABKw3Av9gUzKCdJ+XvX0rfk74PP163Sr+T538sU/z6FXiTxjFvce1vhiOpw/G199OOdMob3fIua+lgjDTv3vSYrI/eODWf2JLfdTVnbwPZt46u8TE/OclMdLTG/UQW651bDXw3UfLx9DqbR4mbuSzMS1hL3I1XPUe6mb5kc8KfKPn5EQ4aOhvxBX9l91nNz4eSdFBfIyaSJuSqEmRJSs+Oin6/lBX2BY667c0NdqhC1zr4GDYhVzMIP8BD0b06W7qMKZz3MlflqtgMp0yOnoniKwwVQq0beITOzNeyl5HASUVX8SQ1gZ9Rj69JoZ+JVDsB7M6Ejt3hNXICBHkxbESuYXM4gVN7Aj8OG5GNlD/njAPypBRLRQn0NRG9N4VOzqbIp2B6b98+eSkjQ57UpnjSFsXEQGVeAemjTspp9qOP4GOyMcmjfgCHoUeTL0Jf41Gv12zQMGQ0z9rCr3mgedg3KBqSJcRozJNHRK3+DXnTgHh+EaK5qUOVSnXANJF6LWMG4z3V07Yof4qonvYB+qrumuxxyJkKWmeKHHjwQva4OfBrgnYbagCChU+XSE2Aq7FpwwV6pEd3wB5+UNp5PgqHhLNSNNsmDohoYBDmUcix8QHZ43KeQZZh003ZdsBCQseWMzq3kPl0RVlDEH6JJjJfIAu5XgsD2lNg/8o2tAhPLBkYh/fvS9E5qPuKhwtgoU13hCDWn9OgRQzdeSntTjCaW3C640pvaNjTbpN2gIWE80O0ZkK8OTMDs25mUT2tj9ZMiOf4IVqHdqjCxQGt01AvCaN1BbKx/wJ6qftK9LAv9t3zh5JlimhZn9CvfYA+K1XH6aOlNuJggfMoS9AIPiwNLLVJvitRz0FJMP3eEz4uRLImDGOFhkNDKJGiWW6D21yEKeIXcCBSHFHGB601HPfGx4MJUqkUfUotR4ZQNkwxPOCAJ4+GOdCHW5HqRkzh+UBPhxBRCI8MBWvFj4FNqCFW5OCKLsXFArjcQcehrweJN1X8eSVn5XUVzuDybaWVSdCdUc61fwND8Xs/VecFlrj8lnAf7zdwGpz3U1XnoLe4ElGTn8mBmZs6f9rDR+V1nNr7Ap6py3uRmuXoNf6AzNKoILGQ1D0pKOySl3bpOcb+Sf8f/BIqqkpiSX0xIzu2A8HFApaCwB/LilMVlzuUgY8oK2hFqYGqysYqs5SVet5WRfooLYGPtNerS4oE8+50dXLTkxc6c/0KJ5LKpBx7f92+91auqMWYAa2hjVzlIWDX+JtlgWymwsq/CxiB5e+vT+48XvrNw32BgQb6aA48tv/9Tuwy5x6LAq0hE5oRf+gU6tOIt+pbmZ2sSJiXkR1CLuVRGjJyus6+mo2dTK4ikhPpjfW/mBfLWLlilJaNxzAelwgr27QHaIpJsjKtL1tMCmTlw3QflQma8bU+ewD9UmFrFth8v3w6b8pkFz/bfrncm4Z6vEJmxUPo8y19zxktBun0advv97fDQ7p5zRyviuCimxmXox9W1GZlLvc9Id7/hGf7+LYEYOC4Bmq7Q2UCyTU18OHh6UqR+QoGZrUwMFcwledvt8BHxsfgFzQyu7UR2c3p7Quzm2tgjslAD9gU5ahXGWgwVcMcfJU9lWc1lNYP51WCfyVYRF6xfR2ry+9egXBW26tK+m8Kor8bnWoTJAAd60b9eSZGBmQuL6EXl06Hiuyzg9q50HOSF/vKmy6Yzep0H0IB4ca+IlV1vfHSuAB7ZXrLY6lO9+/m486eWixBNU8nblc0kgXeeFDDCF9KbzoJROk83vWd7KVmN65cwlM858IP8Iy+G9iiu142sfV+kczS09xz8qULHrhB8P7P8wWNKNi/pNvm+JYywtl0GW9Oi8XrYvE4iNPdrM6JS0tLS0tLS0tLS0tLS0tLS0tLS0vjCBGmX0olyX+cMyJ9NXoaCMGOso7rEfQRgsPypq7spAGJQXcNX4GsFqh9SS2jpBVUGE+sDKkZpCqoSXVAE0imUYNCjUaQ2BexqqBeoBaOliufdLFDtWOO6bdSCZJkv6+UBqkWE0tB6wUWON6VK8Waezp0lHSBOqml9CJJw2yh5t7a9GspBCpTaJX/ICaB56nNlQSrJ4b3H5qq6iagB2vhtWjuaQLLbd1RrAhhAc49dVJ4n6vlr0y/lzIOuLpY3M1qcILvj9d1L7cGJHpmxBeSaWSFVVO0S0WRsZOU+IvaFu1dSF9S/nY3s/sQakBbyjVgjSGVS1F9P70pkrGsjOhOEra+1ED666q1MJTXLRLefaaRpbxQ2ruHJbbeQiqaSCLcr52dVVCQSXh7nS6SSVEpf/1EMi5m5RVV1PqNX8lPx4XiL8blvm4kjLlfWNvOeJMHYe/w6pXoEzCnubPCbfrq2KWyZiZVE68nfDrEa0tUEe0RjVt8OmQZE5FnV9Skc2hvHaWgUyA1C1qwgWvc+P4PCVHzWvAiC1nUuDGYU91C1kwvWt1Clzc0Dla1kB+bmslUtFA0d9GikoWu18wh+IcqFoq3pvbQnHILg4aftyiz0I0WTW7AhzILmffc+AOyRRYyb9xgD/OF3EJXHO/APqmFuSTdnewtQQsDz9pouviPnjMLGRfB5E6a7w8/LWRd7kWjTeO9529yCxlzA257nvU2KLgaoqmk/3X88Wg9GaTDhkf2Fm38D4Kphh9mdNLAAAAAAElFTkSuQmCC">
+
 </head>
 
 <body>
@@ -12,12 +14,13 @@
    
     <div class="history"></div>
     <nav>
-        <button>Clear chat</button>
+        <button>Sterge istoric</button>
     </nav>
 </section>    
 
 <section class="main">
-    <h1>BCR_GPT</h1>
+    <div class="fade-in-text1" >Bun venit la asistenta AI BCR</div>
+    <div class="fade-in-text2" >Georgeta</div>
     <p id="output"></p>
     <div class="bottom-section">
         <div class="input-container">
