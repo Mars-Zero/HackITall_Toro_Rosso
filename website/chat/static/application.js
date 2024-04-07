@@ -24,12 +24,17 @@ async function getMessage() {
             body: JSON.stringify(options)
         };
         console.log('JSON options:', JSON.stringify(options));
-        outputElement.textContent = inputElement.value
+        // outputElement.textContent = inputElement.value
+        outputElement.append("Q :" + inputElement.value + "\n\n")
+        // outputElement.setAttribute('style', 'white-space: pre;');
+        // outputElement.append(String.fromCharCode(10));
         const response = await fetch('/execute-python-script', requestOptions);
         // console.log(response);
         const data = await response.json();
         // console.log('Output from Python script:', data.output);
-        outputElement.textContent = data.output
+        //outputElement.textContent = data.output
+        outputElement.append(data.output)
+        outputElement.innerHTML = outputElement.textContent.replace(/\r/g, '').replace(/\n/g, '<br>');
         // console.log(data)
         if (data.output) {
             const pElement = document.createElement('p')
