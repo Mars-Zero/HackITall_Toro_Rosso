@@ -75,7 +75,7 @@ input:focus {
 .input-container #submit {
     position: absolute;
     right: 0;
-    bottom: 15px;
+    bottom: 0;
     cursor: pointer;
 }
 
