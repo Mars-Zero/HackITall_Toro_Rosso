@@ -8,6 +8,7 @@ from openai import OpenAI
 import os
 import sys
 
+OPENAI_MODEL="gpt-3.5-turbo"
 OPENAI_API_KEY="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"
 
 def print_wrapped(text, wrap_length=80):
@@ -97,7 +98,7 @@ def get_answer_from_query(model, query: str,
     ]
 
     response = client.chat.completions.create(
-    model="gpt-3.5-turbo",
+    model=OPENAI_MODEL,
     messages=messages)
     
     if verbose:
@@ -142,7 +143,7 @@ def translate_to_english(query:str):
     ]
 
     response = client.chat.completions.create(
-                            model="gpt-3.5-turbo",
+                            model=OPENAI_MODEL,
                             messages=messages)
         
     return response.choices[0].message.content
@@ -154,7 +155,7 @@ def translate_to_romanian(query:str):
     ]
 
     response = client.chat.completions.create(
-                            model="gpt-3.5-turbo",
+                            model=OPENAI_MODEL,
                             messages=messages)
         
     return response.choices[0].message.content
@@ -182,54 +183,4 @@ if __name__=="__main__":
     print("RESPONSE:")
     print_wrapped(response)
 
-get_answer_from_RAG_romanian(sys.argv[1])
-
-
-
-
-
-
-
-
-
-
-
-
-# query = "is the bcr technical support 24/7?"
-# query = "what is the maximum amount of money you can send in the app?"
-# query = "what is the procedure for getting a loan?" # prost
-# query = "what is the interest rates for deposits at BCR bank?"
-# query = "what is the interest rate for deposits for 12 months deposit for RON?" # prost ~ prea multe numere
-# query = "what is the maximum amount of money guaranteed by the europeean union?"
-# query = "why do i have a fee for a money transfer to another bank?"
-# query = "what have you eaten today?"
-# print("QUESTION:\n", query)
-
-# # Get just the scores and indices of top related results
-# scores, indices = retrieve_relevant_resources(query=query,
-#                                               embeddings=embeddings)
-# # scores, indices
-
-# # Print out the texts of the top scores
-# chunks = print_top_results_and_scores(query=query,
-#                              embeddings=embeddings)
-
-# #prompt =  'Answer this question: \"\"' + query + '\"\" based on the information below. If the question is not relevant, answer: """Not relevant. How can I help you?""" \\"\"\"' + chunks + '\"\"\"'
-
-# messages = [
-#     {"role": "system", "content": query + '  based on the information below. If the question is not relevant, answer: I do not have an answer to this question. How can I help you? \ \n'},
-#     {"role": "user", "content": chunks}
-#   ]
-
-# print(messages)
-# print("")
-# print("")
-# print("")
-
-# response = client.chat.completions.create(
-#   model="gpt-3.5-turbo",
-#   messages=messages
-# )
-# print("QUESTION:\n", query)
-# print("RESPONSE:")
-# print(response.choices[0].message.content)
+    # get_answer_from_RAG_romanian(sys.argv[1])

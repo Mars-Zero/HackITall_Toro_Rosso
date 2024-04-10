@@ -1,2 +1,5 @@
 .venv
 .idea
+website\chat\__pycache__
+__pycache__
+flask_server\__pycache__
