@@ -7,7 +7,6 @@ _Toro Rosso Project HackITall 2024 April. This project has been presented in a p
 ### Detailed diagram
 ![alt text](/model_training/assets/simple-local-rag-workflow-flowchart.png)
 
-
 ### General Usage
 
 `Modifed_RAG_with_sentence_transformer.ipynb` generates the word embedding file `text_chunks_and_embeddings_df.csv`. It requires a relatively strong computing power to run the `all-mpnet-base-v2` word embedding model from sentence_transformer, thus Google Colab can be a good idea. 
@@ -20,3 +19,5 @@ model from OpenAI to generate a coherent answer using information from the retri
 See [General Business Terms](/pdfs/General-business-terms-and-conditions-for-legal-entities-and-self-employed-individuals-version-no-25-5-May-2023.pdf) to see an example of a pre-processed document. Multiple chunks(contexts) excerpted from these kinds of documents are projected onto the word embedding vector space (two word embedding of closely related chunks in meaning are close in the vector space). When a query is processed, it is projected onto the vector space and the top k nearest embeddings in the vector space are the most relevant chunks of text. 
 
 ![](/model_training/assets/images.jpeg)
+
+## Flask Server and API calls
