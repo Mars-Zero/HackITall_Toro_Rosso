@@ -17,6 +17,6 @@ model from OpenAI to generate a coherent answer using information from the retri
 
 ### Documents Database and Word Embeddings
 
-See [General Business Terms](/pdfs/General-business-terms-and-conditions-for-legal-entities-and-self-employed-individuals-version-no-25-5-May-2023.pdf) to see an example of pre-processed document. Multiple chunks(contexts) excerpted these kind of documents are projected onto the word embedding vector space (two word embedding of closely related chunks in meaning are close in the vector space). When a query is processed, it is projected onto the vector space and the top k nearest embeddings in the vector space are the most relevant chunks of text. 
+See [General Business Terms](/pdfs/General-business-terms-and-conditions-for-legal-entities-and-self-employed-individuals-version-no-25-5-May-2023.pdf) to see an example of a pre-processed document. Multiple chunks(contexts) excerpted from these kinds of documents are projected onto the word embedding vector space (two word embedding of closely related chunks in meaning are close in the vector space). When a query is processed, it is projected onto the vector space and the top k nearest embeddings in the vector space are the most relevant chunks of text. 
 
 ![](/model_training/assets/images.jpeg)
