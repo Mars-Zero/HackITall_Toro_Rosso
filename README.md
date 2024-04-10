@@ -1,6 +1,6 @@
 # ChatGPT-like website with RAG model for legal documents in banking
 
-_Toro Rosso Project HackITall 2024 April. This project has been presented in a project._
+_Toro Rosso Project HackITall 2024 April. This project has been presented in a hackathon._
 
 ## RAG model
 
