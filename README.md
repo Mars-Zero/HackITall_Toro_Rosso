@@ -21,3 +21,20 @@ See [General Business Terms](/pdfs/General-business-terms-and-conditions-for-leg
 ![](/model_training/assets/images.jpeg)
 
 ## Flask Server and API calls
+After the model was prepared, it was connected to a Flask backend.  
+For the fronted we were inspired by BCR's George and ChatGPT. Thus we choose a this modern and clean design.
+![alt text](/website/assets/georgeta.jpeg)
+
+The user has feedback for every question. Also, we there is local history on the left of the page.
+
+All the messages are saved locally, on the session. After the page is reloaded, all the answers are deleted
+![alt text](/website/assets/georgeta_more_questions.jpeg)
+
+#### Endpoints
+
+- `POST /execute-python-script`: Here, the answer from the RAG is returned.
+
+## Run
+We created an automated script to run the server. See [run.sh]("/website/chat/run.sh"). 
+
+
